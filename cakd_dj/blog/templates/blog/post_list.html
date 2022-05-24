@@ -1,26 +1,46 @@
 
-<!DOCTYPE html>
-<html>
-{% load static %}
-<head>
-    <title>Blog</title>
-        <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">   
-</head>
+{% extends 'blog/base.html' %}
 
-<body>
-
+{% block main_area %}
     <h1>Blog</h1>
+    {% if post_list.exists %}
 
-    
+        {% for p in post_list %}
+            <!-- Blog Post -->
+            <div class="card mb-4">
+                {% if p.head_image %}
+                    <img class="card-img-top" src="{{ p.head_image.url }}" alt="{{ p }} head image">
+                {% else %}
+                    <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/800/200" alt="random_image">
+                {% endif %}
+                <div class="card-body">
+                    <h2 class="card-title">{{ p.title}}</h2>
+                    {% if p.hook_text %}
+                        <h5 class="text-muted">{{ p.hook_text }}</h5>
+                    {% endif %}
+                    <!-- 템플릿 필터 : 파이프(|) 문자 사용 -->
+                    <p class="card-text">{{ p.content | truncatewords:45 }}</p>
+                    <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Posted on {{ p.created_at}} by
+                    <a href="#">작성자명 쓸 위치(개발예정)</a>
+                </div>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <h3>아직 게시물이 없습니다.</h3>
+    {% endif %}
 
 
-
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center mb-4">
+        <li class="page-item">
+            <a class="page-link" href="#">&larr; Older</a>
+        </li>
+        <li class="page-item disabled">
+            <a class="page-link" href="#">Newer &rarr;</a>
+        </li>
+    </ul>
+{% endblock %}
