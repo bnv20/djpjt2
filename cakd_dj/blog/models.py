@@ -1,7 +1,6 @@
 import os
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.auth.models import User
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdown
 
