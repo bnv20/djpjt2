@@ -1,12 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> About Kevin </title>
+
+    <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="{% static 'single_pages/css/about_me.css' %}" media="screen">
+    <script src="https://kit.fontawesome.com/726bbd6862.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>About me page</h1>
+
+{% include 'blog/navbar.html' %}
+
+<section class="margin-for-footer" >
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>MLOps Specialist, Kevin</h1>
+                <br/>
+                <ul>
+                    <li>Core skills</li>       
+                    <ul>
+                        <li>Business Planning to create new value</li>
+                        <li>EDA(Exploratory Data Analysis)</li>
+                        <li>Data prep and feature engineering</li>
+                        <li>Model training and tuning</li>
+                        <li>Model review and governance</li>
+                        <li>Model training and tuning</li>
+                        <li>Model inference and serving</li>
+                        <li>Model deployment and monitoring</li>
+                        <li>Automated model retaining</li>
+                    </ul>
+                    <li>Career</li>
+                    <ul>
+                        <li>Choongang IT academy instructor for K-Digital training</li>
+                        <li>Consulting for big data expert training program LG Chem </li>
+                        <li>Data policy task consulting for Ministry of the Interior and Safety</li>
+                        <li>Big Data Instructor appointed by Korea Data Agency</li>
+                        <li>Big Data Instructor for KEPCO ML training program</li>
+                        <li>Hankyung Academy Instructor for big data social marketing program</li>
+                        <li>Samsung Electronics' Global Account IT Solution PM</li>                        
+                    </ul>
+                    <li>Key direction</li>
+                    <ul>
+                        <li>To develop problem-solving capabilities based on big data</li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="col-lg-4 mt-5">
+                <img class="img-fluid" src="{% static 'single_pages/images/myimage.jpg' %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="fixed-bottom">
+    {% include 'blog/footer.html' %}
+</div>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
 </body>
 </html>
